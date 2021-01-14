@@ -70,5 +70,25 @@ namespace Hokemon
             
             return random_value;
         }
+
+        public int attack_calculator()
+        {
+            int attack_value;
+            Random rnd = new Random();
+
+            attack_value = (attack * speed) / 2 * rnd.Next(1, 2);
+
+            return attack_value;
+        }
+
+        public int defense_calculator()
+        {
+            int defense_value;
+            Random rnd = new Random();
+
+            defense_value = (defense * speed) / 2 * rnd.Next(1, 3);
+
+            return defense_value;
+        }
     }
 }
