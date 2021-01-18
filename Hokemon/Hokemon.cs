@@ -29,6 +29,11 @@ namespace Hokemon
             special_defense = random_int_generator(10, 100);
         }
 
+        public void definition()
+        {
+            Console.WriteLine("I am {0} a member of the Hokemon tribe!", name);
+        }
+
         public string Name
         {
             get { return name; }
