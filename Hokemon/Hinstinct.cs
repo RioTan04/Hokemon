@@ -8,9 +8,11 @@ namespace Hokemon
     {
         public string team = "Hinstinct";
 
+        
         public void definition()
         {
             Console.WriteLine("I am {0} and I am part the ferocious Hinstinct Tribe!!", Name);
         }
+        
     }
 }

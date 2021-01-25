@@ -11,22 +11,21 @@ namespace Hokemon
         private int max_health;
         private int health;
         private int attack;
-        private int special_attack;
         private int defense;
-        private int special_defense;
         private int speed;
+        private string team;
 
         // Below is my CONSTRUCTOR method for the Hokemon.
         public Hokemon()
         {
-            provide_name();
+            Random rnd = new Random();
+            string[] myNames = new string[] { "Hulbasaur", "Harmander", "Horlax" };
+            name = myNames[rnd.Next(0, myNames.Length)];
             max_health = random_int_generator(10, 100);
             health = max_health;
             attack = random_int_generator(10, 100);
-            special_attack = random_int_generator(10, 100);
             speed = random_int_generator(10, 100);
             defense = random_int_generator(10, 100);
-            special_defense = random_int_generator(10, 100);
         }
 
         public void definition()
@@ -34,6 +33,7 @@ namespace Hokemon
             Console.WriteLine("I am {0} a member of the Hokemon tribe!", name);
         }
 
+        // PROPERTIES
         public string Name
         {
             get { return name; }
@@ -46,16 +46,20 @@ namespace Hokemon
             set { health = value; }
         }
 
+        public string Team
+        {
+            get { return team; }
+            set { team = value; }
+        }
+
         public void get_stats()
         {
             Console.WriteLine("\n##########################");
             Console.WriteLine(String.Format("# Name: {0,-10}       #", name));
             Console.WriteLine(String.Format("# Health: {0}/{1,-10}  #", health, max_health));
             Console.WriteLine(String.Format("# Attack: {0,-10}     #", attack));
-            Console.WriteLine(String.Format("# Sp.Attack: {0,-10}  #", special_attack));
             Console.WriteLine(String.Format("# Speed: {0,-10}      #", speed));
             Console.WriteLine(String.Format("# Defense: {0,-10}    #", defense));
-            Console.WriteLine(String.Format("# Sp.Defense: {0,-10} #", special_defense));
             Console.WriteLine("##########################");
         }
 
@@ -81,7 +85,7 @@ namespace Hokemon
             int attack_value;
             Random rnd = new Random();
 
-            attack_value = (attack * speed) / 2 * rnd.Next(1, 2);
+            attack_value = (attack * speed) / 2 * rnd.Next(1, 3);
 
             return attack_value;
         }
@@ -91,7 +95,7 @@ namespace Hokemon
             int defense_value;
             Random rnd = new Random();
 
-            defense_value = (defense * speed) / 2 * rnd.Next(1, 3);
+            defense_value = (defense * speed) / 2 * rnd.Next(1, 2);
 
             return defense_value;
         }
